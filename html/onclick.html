@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input id="op" type="button" value="点击我，打开新窗口" />
+    </form>
+    <form>
+        <input type="text" id="clock" size="50" />
+        <input id="stop" type="button" value="Stop" />
+    </form>
+    <script>
+        document.getElementById('op').onclick = function () {
+            alert('欢迎来到慕课网');
+            window.open('https://www.imooc.com', 'width=600', 'height=400');
+        }
+
+
+    </script>
+    <script type="text/javascript">
+        function clock() {
+            var time = new Date();
+            document.getElementById("clock").value = time;
+        }
+
+        var st = setInterval(clock, 100);
+        document.getElementById('stop').onclick = function () {
+            clearInterval(st);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var text = "mom and dad and baby";
+        var pattern = /mom( and dad( and baby)?)?/gi;
+
+        var matches = pattern.exec(text);
+        // console.log(matches);
+
+        var re1=/\d[A-Z]/gi;   //匹配两位一个数字和一个忽略大小写的字母
+        var res1=re1.exec('aa2edj3djie7788');
+        
+        var res3=re1.exec('aa2edj3djie7788');
+
+        console.log(res1);
+        console.log(res3);
+
+        var pattern1 = new RegExp("\\[bc\\]at","gi");
+        console.log(pattern1.valueOf());
+        
+    </script>
+</body>
+</html>

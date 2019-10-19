@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .container {
+            width: 800px;
+            height: 600px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+            border: 3px double red;
+            border-radius: 2%;
+        }
+
+        .imgs {
+            position: absolute;
+            display: flex;
+            left: -800px;
+        }
+
+        #leftPo {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-image: url('../img/left.png');
+            position: absolute;
+            top: 285px;
+            left: 20px;
+            z-index: 1;
+            cursor: pointer;
+            opacity: 0;
+            transition: all linear .5s
+        }
+
+        #rightPo {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-image: url('../img/right_03.png');
+            position: absolute;
+            top: 285px;
+            right: 20px;
+            z-index: 1;
+            cursor: pointer;
+            opacity: 0;
+            transition: all linear .5s
+        }
+
+        #oul {
+            /* opacity: 0;
+            transition: all linear .5s; */
+            position: absolute;
+            bottom: 20px;
+            left: 350px;
+            display: flex;
+        }
+
+        .circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: white;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container" id="container">
+        <i id="leftPo"></i>
+        <div class="imgs" id="imgs">
+            <img src="../images/dd_scroll_5.jpg" alt="">
+            <img src="../images/dd_scroll_1.jpg" alt="">
+            <img src="../images/dd_scroll_2.jpg" alt="">
+            <img src="../images/dd_scroll_3.jpg" alt="">
+            <img src="../images/dd_scroll_4.jpg" alt="">
+            <img src="../images/dd_scroll_5.jpg" alt="">
+            <img src="../images/dd_scroll_1.jpg" alt="">
+
+        </div>
+        <i id="rightPo"></i>
+        <ul id="oul"></ul>
+    </section>
+    <script>
+        window.onload = function () {
+            let imgs = document.getElementById('imgs');
+            let oi = document.getElementsByTagName('I');
+            let img = document.getElementsByTagName('IMG');
+            let oul = document.getElementById('oul');
+            let stopTimer1, stopTimer;
+            // 创建圆圈
+            for (let i = 0; i < img.length - 2; i++) {
+                let newli = document.createElement('li');
+                newli.className = 'circle';
+                oul.appendChild(newli);
+            }
+            let lis = document.getElementsByTagName('LI');
+            // 初识第一张图片显示，给第一个圆圈选中样式
+            lis[0].style.width = '30px';
+            lis[0].style.height = '30px';
+            // 原点大小判断
+            let circle = function (lis) {
+                for (let i = 0; i < lis.length; i++) {
+                    if (i == (imgs.offsetLeft) / (-800)) {
+                        lis[i].style.width = '30px';
+                        lis[i].style.height = '30px';
+                    } else if ((imgs.offsetLeft) / (-800) == -1 && i == 4) {
+                        lis[i].style.width = '30px';
+                        lis[i].style.height = '30px';
+                    } else {
+                        lis[i].style.width = '20px';
+                        lis[i].style.height = '20px';
+                    }
+                }
+            }
+            // 移动的回调函数
+            let move1 = function (speed) {
+                // 图片轮播
+                stopTimer1 = setInterval(function () {
+                    imgs.style.left = imgs.offsetLeft + speed + 'px';
+                    // 当第5张播放到 5图片时，直接跳转到位于第一个的备份 5图片，这样就造成了一直无空隙播放的假象
+                    // 判断的值 -4000为 5图片前面 共计五张图片的宽的和，然后直接跳转到left为0.
+                    if (imgs.offsetLeft <= -img[0].offsetWidth * (img.length - 2)) {
+                        imgs.style.left = 0 + 'px';
+                    } else if (imgs.offsetLeft >= 0) {
+                        imgs.style.left = -img[0].offsetWidth * (img.length - 2) + 'px';
+                    }
+                    if (imgs.offsetLeft % img[0].offsetWidth == 0) {
+                        clearInterval(stopTimer1);
+                    }
+                }, 10)
+                circle(lis);
+            }
+            // 点击激活，每次点击后先清除计时器，防止多次点击同一个按钮后乱窜
+            leftPo.onclick = function () {
+                clearInterval(stopTimer1);
+                move1(20);
+            }
+            rightPo.onclick = function () {
+                clearInterval(stopTimer1);
+                move1(-20);
+            }
+            // 每隔7秒调用1次，7秒等于 图片移动的4秒（800px，每10ms移动2px）+ 停顿的 3秒
+            let moveAll = function () {
+                let stopTimer = setInterval(function () {
+                    rightPo.onclick();
+                }, 1000);
+                // 鼠标放在图片区域时停止滚动、并且左右箭头变为不透明，移开时移动，并且左右箭头变为透明
+                container.onmousemove = function () {
+                    leftPo.style.opacity = '0.8';
+                    rightPo.style.opacity = '0.8';
+                    // oul.style.opacity = '0.8';
+                    clearInterval(stopTimer);
+                }
+                container.onmouseout = function () {
+                    leftPo.style.opacity = '0';
+                    rightPo.style.opacity = '0';
+                    // oul.style.opacity = '0';
+                    moveAll();
+                }
+            }
+            moveAll();
+            // 循环判断点击
+            for (let j = 0; j < lis.length; j++) {
+                lis[j].onclick = function () {
+                    imgs.style.left = -800 * j - 800 + 'px';
+                    for (let i = 0; i < lis.length; i++) {
+                        if (i == j) {
+                            lis[i].style.width = '30px';
+                            lis[i].style.height = '30px';
+                        } else {
+                            lis[i].style.width = '20px';
+                            lis[i].style.height = '20px';
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

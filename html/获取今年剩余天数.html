@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="day">今年还剩多少天？</p>
+    <script>
+        var cont = document.getElementById("day");
+        cont.onclick = function(){
+            cont.innerHTML = "还剩"+daysLeft+"天";
+        }
+        
+            
+            var today = new Date();
+            var endYear = new Date(1996, 11, 31, 23, 59, 59, 999);
+            endYear.setFullYear(today.getFullYear());
+            var msDay = 24 * 60 * 60 * 1000;
+            var daysLeft = (endYear.getTime() - today.getTime()) / msDay;
+            var daysLeft = Math.round(daysLeft);
+            
+        
+
+        
+    </script>
+</body>
+
+</html>

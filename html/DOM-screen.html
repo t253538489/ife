@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var leftPos = (typeof window.screenLeft == "number") ?
+        //                     window.screenLeft : window.screenX;
+        // var topPos = (typeof window.screenTop == "number") ?
+        //                     window.screenTop : window.screenY;
+
+        // setTimeout(function(){
+        //     alert('Hello World');
+        // }, 1000);
+
+        // var num = 0;
+        // var max = 10;
+        // var intervalId = null;
+
+        // function incrementNumber(){
+        //     num++;
+
+        //     if(num == max){
+        //         clearInterval(intervalId);
+        //         alert("Done");
+        //     }
+        // }
+
+        // intervalId = setInterval(incrementNumber, 500);
+
+
+        var num = 0;
+        var max = 10;
+        
+        function incrementNumber(){
+            num++;
+
+            if(num < max){
+                setTimeout(incrementNumber, 500);
+            }
+                else{
+                    alert('Done');
+                }
+            
+        }
+
+        setTimeout(incrementNumber, 500);
+    </script>
+</body>
+</html>

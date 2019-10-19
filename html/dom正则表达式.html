@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var re = /ab*c/; //*的意思是前一项出现零次或者多次。在字符串 "cbbabbbbcdebc" 中，这个模式匹配了子字符串 "abbbbc"
+        var re = /Jack(?=Sprat|Frost)/;//断言：X(?=Y)  x仅在x后面跟着匹配y  只有在“Sprat”或“Frost”之后才匹配“Jack”
+        var re = /\d+(?!\.)/.exec("3.141");//否定前瞻断言:x仅在x未遵循的情况下匹配y 仅在数字后面没有小数点时才匹配数字。 /\d+(?!\.)/.exec('3.141')匹配“141”而不是“3”
+        var re = /(?<=Jack|Tom)Sprot/; //lookbehind断言：(?<=y)x 仅当x前面有y时才匹配x
+        var re = /(?<!-)\d+/.exec("3")//   负lookbehind断言：(?<!y)x 仅当x前面没有y时才匹配x
+
+        let reg = /First(?= test)/g;//匹配后面有 test的First
+        console.log("First test".match(reg));
+        console.log("First peach".match(reg));
+        console.log("This is a First test in a year.".match(reg));
+        console.log("This is a First peach in a month.".match(reg));
+
+        let oranges = ['ripe orange A', 'green orange B', 'ripe orange C',];
+
+        let ripe_oranges = oranges.filter(function (fruit){
+            return fruit.match(/(?<=ripe )orange/)
+        });
+        console.log(ripe_oranges);
+    </script>
+</body>
+</html>

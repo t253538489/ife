@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #clock{
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -100px;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock"></div>
+
+    <script>
+        function fn(){
+            var myDate = new Date();
+            var localeDate = myDate.toLocaleString();
+            var d = document.getElementById("clock");
+            d.innerHTML = localeDate;
+            // var str = setTimeout(fn, 1000);
+        }
+
+        fn();
+        var str = setInterval(fn, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #clock{
+            width: 150px;
+            height: 30px;
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-left:-75px;
+            margin-top:-15px;
+            text-align: center;
+            line-height: 30px;
+            border: 5px solid #000;
+            background-color: #ddd;
+            font-weight: bold;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <p id = "clock"></p>
+    <script>
+        function JSClock() {
+            var a = document.getElementById("clock");
+            var time = new Date();
+            var hour = time.getHours();
+            var minute = time.getMinutes();
+            var second = time.getSeconds();
+            var temp = "" + ((hour > 12) ? (hour - 12) : hour);
+            if (hour == 0)
+                temp = "12";
+            temp += ((minute < 10) ? ":0" : ":") + minute;
+            temp += ((second < 10) ? ":0" : ":") + second;
+            temp += (hour >= 12) ? " P.M." : " A.M.";
+            a.innerHTML = temp;
+        }
+        setInterval(JSClock,1000);
+       
+    </script>
+</body>
+
+</html>

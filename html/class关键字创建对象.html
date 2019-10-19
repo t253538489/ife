@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Polygon {
+            constructor() {
+                this.name = "Polygon";
+            }
+        }
+
+        class Square extends Polygon {
+            constructor() {
+                super();
+            }
+        }
+
+        class Rectangle {}
+
+        Object.setPrototypeOf(Square.prototype, Rectangle.prototype);
+
+        console.log(Object.getPrototypeOf(Square.prototype) === Polygon.prototype); //false
+        console.log(Object.getPrototypeOf(Square.prototype) === Rectangle.prototype); //true
+
+        let newInstance = new Square();
+        console.log(newInstance.name); //Polygon
+    </script>
+</body>
+
+</html>

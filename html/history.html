@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 点击下面的锚点链接，添加历史列表项:
+    <br />
+    <a href="#target1">第一个锚点</a>
+    <a name="target1"></a>
+    <br />
+    <a href="#target2">第二个锚点</a>
+    <a name="target2"></a>
+    <br /><br />
+    使用下面按钮，实现返回下一个页面:
+    <form>
+        <input type="button" value="返回下一个页面" id='go' />
+    </form>
+
+    <script>
+        document.getElementById("go").onclick = function () {
+            history.forward();
+        }
+    </script> -->
+
+    点击下面的锚点链接，添加历史列表项:    
+    <br />
+    <a href="#target1">第一个锚点</a>
+    <a name="target1"></a>
+    <br />
+    <a href="#target2">第二个锚点</a>
+    <a name="target2"></a>
+    <br /><br />
+    使用下面按钮，实现返回前或下一个页面:
+    <form>
+       <input type="button"  value="返回前一个页面" onclick="GoBack();" />
+       <input type="button"  value="返回下一个页面" onclick="GoForward();" /> 
+    </form>
+
+    <script type="text/javascript">
+        function GoBack() {
+            history.go(-1);
+        }
+
+        function GoForward() {
+            history.go(1);
+        }
+    </script>
+</body>
+
+</html>
