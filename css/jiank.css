@@ -76,3 +76,6 @@ body{
     /* padding-left: 118px; */
     /* margin-top: 400px; */
 }
+img{
+z-index:-1;
+}
