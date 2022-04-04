@@ -3,4 +3,4 @@
 <a href="https://t253538489.github.io/ife/html/day16.html">ife16</a><br>
 <a href="https://t253538489.github.io/ife/html/ife day17-18dec2bin.html">ife17-18十进制转二进制</a><br>
 <a href="https://t253538489.github.io/ife/html/ife19.html">ife19查找元素练习</a><br>
-<a href="https://t253538489.github.io/ife/jiangkang.html">jinakang
+<a href="https://t253538489.github.io/ife/blob/master/jiankang.html">jinakang
