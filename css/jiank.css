@@ -20,11 +20,13 @@ time, mark, audio, video {
     
 }
 body{
-    width:720px;
+    margin-top: -152px;
+    width: 720px;
     font-family: '微软雅黑';
-    height: 1920px;
+    height: 3800px;
     background-image:  url('../images/3.jpg');
     background-repeat: no-repeat;
+    background-position: 0 -152px;
 }
 #time{
     padding-top: 665px;
@@ -64,6 +66,7 @@ body{
 .hesuan{
     padding-top: 125px;
     margin-left: 243px;
+    height: 285px;
 
 }
 .hxm,.hxd{
@@ -77,6 +80,14 @@ body{
     /* padding-left: 118px; */
     /* margin-top: 400px; */
 }
-img{
-z-index:-1;
+.ft1{
+    height: 1223px;
+    background-image: url("../images/5.jpg");
+    background-position: 0 -152px;
+}
+
+.ft2{
+    height: 1280px;
+    background-image: url("../images/4.jpg");
+    background-position: 0 -152px;
 }
