@@ -20,6 +20,7 @@ time, mark, audio, video {
     
 }
 body{
+    width:720px;
     font-family: '微软雅黑';
     height: 1920px;
     background-image:  url('../images/3.jpg');
