@@ -22,7 +22,7 @@ time, mark, audio, video {
 body{
     font-family: '微软雅黑';
     height: 1920px;
-    background-image:  url('../images/3.jpg');
+    background-image:  url('https://github.com/t253538489/ife/blob/master/images/3.jpg');
     background-repeat: no-repeat;
 }
 #time{
