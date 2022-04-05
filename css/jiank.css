@@ -29,8 +29,9 @@ body{
     background-position: 0 -152px;
 }
 #time{
+    height:52px;
     padding-top: 665px;
-    padding-left: 140px;
+    padding-left: 135px;
     color: #416ff8;
     font-size: 43px;
     font-weight: 800;
