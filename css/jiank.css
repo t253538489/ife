@@ -29,19 +29,19 @@ body{
     background-position: 0 -152px;
 }
 #time{
-    
-    padding-top: 665px;
-    padding-left: 170px;
+    padding-top: 730px;
+    padding-left: 140px;
     color: #416ff8;
-    font-size: 40px;
+    font-size: 43px;
     font-weight: 800;
     font-family: '微软雅黑';
+    height: 52px;
     
 }
 .dizhi{
     /* font-family: "黑体"; */
     font-family: '微软雅黑';
-    padding-top: 170px;
+    padding-top: 265px;
     padding-left: 30px;
     word-break:break-all;
     width: 450px;
@@ -65,10 +65,18 @@ body{
     font-weight: 600;
 }
 .hesuan{
-    padding-top: 125px;
+    padding-top: 158px;
     margin-left: 243px;
     height: 285px;
 
+}
+.hxone{
+    padding: 58px;
+    margin-left: -59px;
+}
+.hxtwo{
+    padding:0px;
+    /* margin-left: -1px; */
 }
 .hxm,.hxd{
     font-size:30px ;
