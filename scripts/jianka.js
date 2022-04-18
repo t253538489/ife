@@ -46,3 +46,7 @@ function run(){
     }
      
     run();
+
+setInterval(function() { 
+    $(".ft1").load(location.href+" .ft1>*",""); 
+}, 1000);
