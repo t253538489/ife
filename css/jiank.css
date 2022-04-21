@@ -24,7 +24,7 @@ body{
     width: 720px;
     font-family: '微软雅黑';
     height: 3800px;
-    background-image:  url('../images/6.jpg');
+    background-image:  url('../images/7.jpg');
     background-repeat: no-repeat;
     background-position: 0 -152px;
 }
@@ -66,16 +66,16 @@ body{
     font-weight: 600;
 }
 .hesuan{
-    padding-top: 115px;
+    padding-top: 110px;
     margin-left: 245px;
-    height: 270px;
+    height: 310px;
 
 }
 .hx{
     padding-top: 40px;
 }
 .hxone{
-    padding-top: 61px;
+    padding-top: 94px;
     /* margin-left: -59px; */
 }
 .hxtwo{
